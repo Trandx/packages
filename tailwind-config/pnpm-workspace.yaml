@@ -1,0 +1,5 @@
+packages:
+  - src/plugin/*
+
+  # Enable recursive installation
+recursive-install: true

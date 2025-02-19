@@ -1,0 +1,51 @@
+@theme {
+    --animate-none: none;
+    --animate-stripe: stripe 1s linear infinite;
+    --animate-spin: spin 1s linear infinite;
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    --animate-bounce: bounce 1s infinite;
+
+    --animate-fade-in: fade-in 2s ease-in;
+    --animate-fade-out: fade-out 2s ease-in;
+    --animate-slide-left: slide-left 2s ease-in;
+    --animate-slide-right: slide-right 2s ease-in;
+    --animate-slide-up: slide-up 2s ease-in;
+    --animate-slide-down: slide-down 2s ease-in;
+
+    --animate-slide-in-left: slide-in-left 2s ease-in;
+    --animate-slide-in-right: slide-in-right 2s ease-in;
+    --animate-slide-in-up: slide-in-up 2s ease-in;
+    --animate-slide-in-down: slide-in-down 2s ease-in;
+
+    --animate-slide-out-left: slide-out-left 2s ease-in;
+    --animate-slide-out-right: slide-out-right 2s ease-in;
+    --animate-slide-out-up: slide-out-up 2s ease-in;
+    --animate-slide-out-down: slide-out-down 2s ease-in;
+
+    --animate-fade-in-left: fade-in-left 2s ease-in;
+    --animate-fade-in-right: fade-in-right 2s ease-in;
+    --animate-fade-in-up: fade-in-up 2s ease-in;
+    --animate-fade-in-down: fade-in-down 2s ease-in;
+
+    --animate-fade-out-left: fade-out-left 2s ease-in;
+    --animate-fade-out-right: fade-out-right 2s ease-in;
+    --animate-fade-out-up: fade-out-up 2s ease-in;
+    --animate-fade-out-down: fade-out-down 2s ease-in;
+
+    --animate-spinner-grow: spinner-grow 2s ease-in;
+
+    --animate-zoom-in: zoom-in 2s ease-in;
+
+    --animate-zoom-out: zoom-out 2s ease-in;
+
+    --animate-tada: tada 2s ease-in;
+
+    --animate-placeholder-wave: placeholder-wave 2s ease-in;
+
+    --animate-show-up-clock: show-up-clock 2s ease-in;
+
+    --animate-infinite-progress-vertical: infinite-progress-vertical 2s ease-in-out infinite alternate;
+
+    --animate-infinite-progress-horizontal: infinite-progress-horizontal 2s ease-in-out infinite alternate;
+}

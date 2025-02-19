@@ -1,0 +1,29 @@
+/* @utility btns {
+    background-color: brown;
+} */
+@utility btn {
+    font-size: var(--text-base);
+    line-height: var(--font-size-sm--line-height, 1.25rem);
+    padding: calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    /* border: 2 solid; */
+}
+@utility btn-primary {
+    background-color: var(--color-primary-500);
+    /* border: 2 solid; */
+}
+@utility btn-danger {
+    background-color: var(--color-red-400);
+    /* border: 2 solid; */
+}
+@utility stripe-bar {
+    background-image: var(--background-stripe-image);
+    background-size: var(--background-stripe-size);
+    animation: unset;
+}
+
+@utility stripe-bar-animated {
+    background-image: var(--background-stripe-image);
+    background-size: var(--background-stripe-size);
+    animation: var(--animate-stripe);
+}

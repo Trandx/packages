@@ -1,0 +1,23 @@
+[submodule "vue-cropper"]
+	path = vue-cropper
+	url = https://github.com/Trandx/vue-cropper.git
+
+[submodule "native"]
+	path = native
+	url = https://github.com/Trandx/native.git
+	
+[submodule "tailwind-config"]
+	path = tailwind-config
+	url = https://github.com/Trandx/tailwind-config.git
+
+[submodule "cropperjs"]
+	path = cropperjs
+	url = https://github.com/Trandx/cropperjs.git
+
+[submodule "jose-esm"]
+	path = jose-esm
+	url = https://github.com/Trandx/jose-esm.git
+
+[submodule "ui"]
+	path = ui
+	url = https://github.com/Trandx/ui.git

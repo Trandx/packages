@@ -1,0 +1,48 @@
+name: Release
+
+on:
+  # This triggers the release only after a PR is merged into the main branch
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # to publish a GitHub release
+      issues: write  # to comment on released issues
+      pull-requests: write  # to comment on released pull requests
+      id-token: write  # for OIDC authentication
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all commit history for semantic-release
+
+      - name: Setup Node.js and pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install Node.js (>=20.8.1)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.8.1'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build the project
+        run: pnpm run build
+
+      - name: Verify provenance and audit signatures
+        run: pnpm audit signatures
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm dlx semantic-release

@@ -1,5 +1,0 @@
-# Tailwind CSS config
-
-
-
-

@@ -30,41 +30,37 @@ jobs:
       # - name: Configure npm authentication
       #   run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > ~/.npmrc
 
-      # - name: Get changed packages
-      #   id: changed-packages
-      #   run: |
-      #     pnpm changeset status --output=changed-packages.json
-      #     CHANGED_PACKAGES=$(jq -r '.releases[].name' changed-packages.json | tr '\n' ' ' || echo "")
-      #     CHANGED_PACKAGES=$(echo "$CHANGED_PACKAGES" | xargs)
-      #     if [ -z "$CHANGED_PACKAGES" ]; then
-      #       echo "No packages to be bumped."
-      #     else
-      #       echo "CHANGED_PACKAGES=$CHANGED_PACKAGES" >> $GITHUB_ENV
-      #     fi
+      - name: Get changed packages
+        id: changed-packages
+        run: |
+          pnpm changeset status --output=changed-packages.json
+          CHANGED_PACKAGES=$(jq -r '.releases[].name' changed-packages.json | tr '\n' ' ' || echo "")
+          CHANGED_PACKAGES=$(echo "$CHANGED_PACKAGES" | xargs)
+          if [ -z "$CHANGED_PACKAGES" ]; then
+            echo "No packages to be bumped."
+          else
+            echo "CHANGED_PACKAGES=$CHANGED_PACKAGES" >> $GITHUB_ENV
+          fi
 
       - name: Add changesets
         run: npx changeset add --empty
 
-      # - name: Version packages
-      #   run: pnpm changeset version
+      - name: Version packages
+        run: pnpm changeset version
 
-      # - name: Build updated packages
-      #   if: env.CHANGED_PACKAGES != ''
-      #   run: |
+      - name: Build updated packages
+        if: env.CHANGED_PACKAGES != ''
+        run: |
 
-      #     #start build other packages
-      #     for package in $CHANGED_PACKAGES; do
-      #       if [ "$package" != '@trandx/round-to' ]; then
-      #         pnpm --filter "$package" build
-      #       fi
-      #     done
-
-      - name: start build
-        #start build other packages
-        run: pnpm recursive run build
+          #start build other packages
+          for package in $CHANGED_PACKAGES; do
+            if [ "$package" != '@trandx/round-to' ]; then
+              pnpm --filter "$package" build
+            fi
+          done
 
       - name: Publish updated packages
-        # if: env.CHANGED_PACKAGES != ''
+        if: env.CHANGED_PACKAGES != ''
         run: npx changeset publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

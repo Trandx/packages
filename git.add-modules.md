@@ -1,3 +1,8 @@
+# Supprimer le dossier et créer un lien symbolique vers l'emplacement externe
+ln -s path/to/package_name packages_alias
+
+# Ajouter le submodule dans un dossier local valide
+git submodule add  https://github.com/user/vue-cropper.git path/to/package_name packages_alias
 
 
 ### 1. Remove the Existing Directory from Git Index

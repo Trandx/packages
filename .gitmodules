@@ -20,3 +20,6 @@
 [submodule "tailwind-config"]
 	path = tailwind-config
 	url = https://github.com/Trandx/tailwind-config.git
+[submodule "nest"]
+	path = nest
+	url = https://github.com/trandx/nest.git
